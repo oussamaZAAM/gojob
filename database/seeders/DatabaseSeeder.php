@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // Listing::create([
         //     'title' => 'Laravel Senior Developer',
         //     'tags' => 'laravel, javascript',
+        //     'logo' => 'nextjs, proxy',
         //     'company' => 'Acme Corp',
         //     'location' => 'Boston, MA',
         //     'email' => 'email1@email.com',
