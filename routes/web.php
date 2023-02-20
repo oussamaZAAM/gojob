@@ -28,8 +28,18 @@ Route::get('/', [ListingController::class, 'index']);
 //         abort("404");
 //     }
 // });
+
+//Show Form to Create a Listing
 Route::get('/listing/create', [ListingController::class, 'create']);
 
+//Store a new Listing
 Route::post('/listing', [ListingController::class, 'store']);
 
+//Show Form to Edit a Listing
+Route::get('/listing/{listing}/edit', [ListingController::class, 'edit']);
+
+//Update a Listing
+Route::put('/listing/{listing}', [ListingController::class, 'update']);
+
+//Show a Listing
 Route::get('/listing/{listing}', [ListingController::class, 'show']);
