@@ -4,7 +4,7 @@
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Edit a Job
             </h2>
-            <p class="mb-4">Edit a gig : {{$listing->title}}</p>
+            <p class="mb-4">Edit a job : {{$listing->title}}</p>
         </header>
 
         <form method="POST" action="/listing/{{$listing->id}}" enctype="multipart/form-data">
