@@ -35,7 +35,7 @@
                 Welcome {{auth()->user()->name}}
             </span>
             <li>
-                <a href="/listing/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Manage Lisings</a>
+                <a href="/listing/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Manage Listings</a>
             </li>
             <li>
                 <form method="POST" action="/logout" class="inline">
