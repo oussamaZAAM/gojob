@@ -58,15 +58,24 @@ class ListingController extends Controller
     //Show Form to Edit a Listing
     public function edit(Listing $listing)
     {
+        // Make sure the logged in user is the owner of the Listing
+        if ($listing->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
         return view('listing.edit', ['listing' => $listing]);
     }
 
     //Update a Listing
     public function update(Request $request, Listing $listing)
     {
+        // Make sure the logged in user is the owner of the Listing
+        if ($listing->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $formFields = $request->validate([
             'title' => 'required',
-            'company' => ['required', Rule::unique('listings', 'company')],
+            'company' => ['required', Rule::unique('listings', 'company')->ignoreModel($listing)],
             'location' => 'required',
             'website' => 'required',
             'email' => ['required', 'email'],
@@ -86,6 +95,11 @@ class ListingController extends Controller
     //Delete a Listing
     public function destroy(Listing $listing)
     {
+        // Make sure the logged in user is the owner of the Listing
+        if ($listing->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $listing->delete();
 
         return redirect('/')->with('message', 'Job Infos was deleted successfully');
