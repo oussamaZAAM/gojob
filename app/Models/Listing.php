@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Listing extends Model
 {
@@ -21,5 +22,10 @@ class Listing extends Model
                   ->orWhere('company', 'like', '%' . request('search') . '%')
                   ->orWhere('location', 'like', '%' . request('search') . '%');
         }
+    }
+
+    // Relationship to User
+    public function user() {
+        return $this->BelongsTo(User::class, 'user_id');
     }
 }
