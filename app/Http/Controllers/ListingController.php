@@ -90,4 +90,5 @@ class ListingController extends Controller
 
         return redirect('/')->with('message', 'Job Infos was deleted successfully');
     }
+    public function manage() {
 }
